@@ -38,7 +38,9 @@ for (const file of files) {
     const height = Math.round(width * group.ratio);
 
     for (const [ext, encode] of Object.entries(FORMATS)) {
-      const image = sharp(join(SRC, file), { density: 300 }).resize(width, height, { fit: 'cover' });
+      const image = sharp(join(SRC, file), { density: 300 }).resize(width, height, {
+        fit: 'cover',
+      });
       await encode(image).toFile(join(OUT, `${name}-${width}.${ext}`));
     }
   }

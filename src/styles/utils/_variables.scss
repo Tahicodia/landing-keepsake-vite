@@ -11,13 +11,11 @@ $colors: (
   'dot': #c9ced2,
   'overlay': rgb(30 32 36 / 82%),
 );
-
 $fonts: (
   'heading': "'Oswald', sans-serif",
   'body': "'Open Sans', sans-serif",
   'logo': "'Dancing Script', cursive",
 );
-
 $sizes: (
   'base': (
     'pad': 20px,
@@ -47,5 +45,4 @@ $sizes: (
     'fs-stat': 48px,
   ),
 );
-
 $work-filters: 'all', 'branding', 'identity', 'print', 'web', 'motion';
