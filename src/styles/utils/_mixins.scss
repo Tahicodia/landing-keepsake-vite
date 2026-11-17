@@ -1,85 +1,28 @@
-@mixin flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  white-space: nowrap;
+  clip-path: inset(50%);
 }
 
-@mixin responsive($property, $small, $medium, $large) {
-  #{$property}: $small;
-
-  @media (min-width: 768px) {
-    #{$property}: $medium;
-  }
-
-  @media (min-width: 1200px) {
-    #{$property}: $large;
-  }
+@mixin caps($size: var(--fs-ui), $spacing: 1px, $weight: 400) {
+  font-family: var(--font-heading);
+  font-size: $size;
+  font-weight: $weight;
+  letter-spacing: $spacing;
+  text-transform: uppercase;
 }
 
-@mixin placeholder {
-  ::placeholder { @content; }
-  ::-webkit-input-placeholder { @content; }
-  ::-moz-placeholder { @content; }
-  :-ms-input-placeholder { @content; }
-}
-
-@mixin flex-variant($display, $direction: false, $align: false, $justify: false, $wrap: false) {
+@mixin flex-center($display: flex) {
   display: $display;
-
-  @if $direction {
-    flex-direction: $direction;
-  }
-
-  @if $align {
-    align-items: $align;
-  }
-
-  @if $justify {
-    justify-content: $justify;
-  }
-
-  @if $wrap {
-    flex-wrap: $wrap;
-  }
-
-  & > * {
-    min-width: 0;
-  }
+  align-items: center;
+  justify-content: center;
 }
 
-@mixin flex($direction: false, $align: false, $justify: false, $wrap: false) {
-  @include flex-variant(flex, $direction: $direction, $align: $align, $justify: $justify, $wrap: $wrap);
-}
-
-@mixin inline-flex($direction: false, $align: false, $justify: false, $wrap: false) {
-  @include flex-variant(inline-flex, $direction: $direction, $align: $align, $justify: $justify, $wrap: $wrap);
-}
-
-@mixin font-face($font-name, $file-name, $weight: normal, $style: normal) {
-  @font-face {
-    font-family: quote($font-name);
-    font-style: $style;
-    font-weight: $weight;
-    src: url($file-name + '.eot');
-    src:
-            url($file-name + '.eot?#iefix') format('embedded-opentype'),
-            url($file-name + '.woff') format('woff'),
-            url($file-name + '.ttf') format('truetype'),
-            url($file-name + '.svg##{$font-name}') format('svg');
-  }
-}
-
-@mixin svg-icon($color: false, $width: false, $height: $width) {
-  display: inline-flex;
-  flex-shrink: 0;
-  @if ($width) {
-    width: $width;
-  }
-  @if ($height) {
-    height: $height;
-  }
-
-  @if $color {
-    fill: $color;
-  }
+@mixin focus-ring {
+  outline: 2px solid var(--color-teal);
+  outline-offset: 2px;
 }
