@@ -3,6 +3,7 @@ import pug from '@vituum/vite-plugin-pug'
 import path from 'path'
 
 export default {
+    base: './',
     plugins: [
         vituum({
             imports: {
@@ -18,6 +19,14 @@ export default {
         alias: {
             '@': path.resolve(import.meta.dirname, 'src'),
             '@assets': path.resolve(import.meta.dirname, 'src/assets')
+        },
+    },
+    build: {
+        assetsInlineLimit: 0,
+    },
+    server: {
+        watch: {
+            ignored: ['**/.vs/**'],
         },
     },
 }
